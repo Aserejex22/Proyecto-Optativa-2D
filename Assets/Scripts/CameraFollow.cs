@@ -1,8 +1,6 @@
 using UnityEngine;
 
-// Cámara sencilla que sigue al jugador de forma suave.
-// Si no se asigna `target` en el Inspector, intenta encontrar
-// un objeto con `PlayerMovementEvents` o con la tag "Player".
+
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour
 {
@@ -25,7 +23,6 @@ public class CameraFollow : MonoBehaviour
     {
         if (target == null)
         {
-            // Preferimos buscar el componente de movimiento del jugador
             var player = FindObjectOfType<PlayerMovementEvents>();
             if (player != null) target = player.transform;
             else

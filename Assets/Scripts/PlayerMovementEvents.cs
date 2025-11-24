@@ -61,12 +61,10 @@ public class PlayerMovementEvents : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Mueve usando la propiedad correcta `velocity` de Rigidbody2D
         Vector2 vel = rb.linearVelocity;
         vel.x = moveInput * moveSpeed;
         rb.linearVelocity = vel;
 
-        // Comprueba si está en suelo cada FixedUpdate
         bool groundedNow = IsGrounded();
         if (groundedNow) canJump = true;
 
@@ -116,7 +114,6 @@ public class PlayerMovementEvents : MonoBehaviour
         }
     }
     
-    // Depuración de colisiones: imprime normales de contacto para ver por qué salta al chocar
     void OnCollisionEnter2D(Collision2D collision)
     {
         foreach (var contact in collision.contacts)
