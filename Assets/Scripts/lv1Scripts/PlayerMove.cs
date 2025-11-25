@@ -34,7 +34,7 @@ public class PlayerMove : MonoBehaviour
         {
             rb2D.linearVelocity = new Vector2(0, rb2D.linearVelocity.y);
         }
-        if((Input.GetKey("space") || Input.GetKey("up")) && CheckGround.isGrounded)
+        if((Input.GetKey("w") || Input.GetKey("up")) && CheckGround.isGrounded)
         {
             rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, jumpSpeed);
         }
@@ -44,7 +44,7 @@ public class PlayerMove : MonoBehaviour
             {
                rb2D.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier) * Time.deltaTime;
             }
-            if(rb2D.linearVelocity.y > 0 && !Input.GetKey("space"))
+            if(rb2D.linearVelocity.y > 0 && !Input.GetKey("w"))
             {
                rb2D.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier) * Time.deltaTime;
             }
