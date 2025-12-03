@@ -1,11 +1,11 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerRespawn : MonoBehaviour
 {
     private float checkpointX, checkpointY;
 
+    public Animator animator;
 
-   
     void Start()
     {
         if (PlayerPrefs.GetFloat("checkpointX")!=0)
@@ -18,6 +18,13 @@ public class PlayerRespawn : MonoBehaviour
     {
         PlayerPrefs.SetFloat("checkpointX", transform.position.x);
         PlayerPrefs.SetFloat("checkpointY", transform.position.y);
+    }
+    
+    public void PlayerDamage()
+    {
+        animator.Play("HitAnimation");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
    
 }

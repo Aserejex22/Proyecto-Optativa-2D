@@ -6,6 +6,6 @@ public class DamageObject : MonoBehaviour
     {
         if(collision.transform.CompareTag("Player"))
         Debug.Log("haz muerto");
-        Destroy(collision.gameObject);
+        collision.transform.GetComponent<PlayerRespawn>().PlayerDamage();
     }
 }
