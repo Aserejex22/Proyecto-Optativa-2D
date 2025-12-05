@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class FuitManager : MonoBehaviour
 {   
    // public Text levelCleared;
+   
 
     public GameObject transition;
     private void Update()
