@@ -12,8 +12,8 @@ public class Sword : MonoBehaviour
 
     void Start()
     {
-      playerSpriteRenderer = transform.root.GetComponent<SpriteRenderer>();
-      collider2D = GetComponent<BoxCollider2D>();
+        playerSpriteRenderer = transform.root.GetComponent<SpriteRenderer>();
+        collider2D = GetComponent<BoxCollider2D>();
 
     }
 
@@ -53,7 +53,8 @@ public class Sword : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-             Debug.Log("Enemy hit!");
+            collision.gameObject.GetComponentInParent<JumpDamage>().LosseLifeAndHit();
+            collider2D.enabled = false;
         }
     }
 }
