@@ -26,13 +26,11 @@ public class Sword : MonoBehaviour
 
         if (playerSpriteRenderer.flipX == true)
         {
-            swordParent.transform.localPosition = new Vector3(-0.5f, swordParent.transform.localPosition.y, swordParent.transform.localPosition.z);
-            collider2D.offset = new Vector2(-Mathf.Abs(collider2D.offset.x), collider2D.offset.y);
+            swordParent.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
         else
         {
-            swordParent.transform.localPosition = new Vector3(0.5f, swordParent.transform.localPosition.y, swordParent.transform.localPosition.z);
-            collider2D.offset = new Vector2(Mathf.Abs(collider2D.offset.x), collider2D.offset.y);
+            swordParent.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
     }
