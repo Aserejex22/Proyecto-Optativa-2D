@@ -20,7 +20,8 @@ public class FuitManager : MonoBehaviour
     {
         AllFruitsCollected();
         totalFruits.text = totalFruitsIntLevel.ToString();
-        fruitsCollected.text = (totalFruitsIntLevel - transform.childCount).ToString();
+       // fruitsCollected.text = (totalFruitsIntLevel - transform.childCount).ToString();
+       fruitsCollected.text= (Mathf.Abs(transform.childCount-totalFruitsIntLevel).ToString());
 
     }
     public void AllFruitsCollected()
