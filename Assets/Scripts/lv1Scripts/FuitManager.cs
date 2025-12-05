@@ -2,14 +2,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class FuitManager : MonoBehaviour
-{   
-   // public Text levelCleared;
-   
+{
+    //public Text levelCleared;
+
+    public Text totalFruits;
+    public Text fruitsCollected;
+
+    private int totalFruitsIntLevel;
+
+    void Start()
+    {
+        totalFruitsIntLevel = transform.childCount;
+    }
 
     public GameObject transition;
     private void Update()
     {
         AllFruitsCollected();
+        totalFruits.text = totalFruitsIntLevel.ToString();
+        fruitsCollected.text = (totalFruitsIntLevel - transform.childCount).ToString();
 
     }
     public void AllFruitsCollected()
@@ -17,7 +28,7 @@ public class FuitManager : MonoBehaviour
         if(transform.childCount == 0)
         {
             Debug.Log("Nivel Completado");
-           // levelCleared.gameObject.SetActive(true);
+           //levelCleared.gameObject.SetActive(true);
             transition.SetActive(true);
             Invoke("ChangeScene", 1);
         }
