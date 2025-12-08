@@ -1,11 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // <-- ¡OJO! Esta línea es obligatoria para cargar niveles
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
     // Asegúrate de que estos están arrastrados en el Inspector
     public GameObject mainMenuPanel; 
     public GameObject creditsPanel; 
+
+    // <<<< NUEVA LÍNEA PARA LA MÚSICA >>>>
+    public AudioSource creditsAudioSource; 
 
     void Start()
     {
@@ -27,7 +30,6 @@ public class MainMenuManager : MonoBehaviour
     public void Jugar()
     {
         // Carga la escena llamada "lvl1". 
-        // Asegúrate de que tu escena se llame EXACTAMENTE "lvl1" (minúsculas importan).
         SceneManager.LoadScene("lvl1"); 
     }
 
@@ -37,17 +39,29 @@ public class MainMenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    // --- TUS FUNCIONES DE CRÉDITOS (IGUAL QUE ANTES) ---
+    // --- TUS FUNCIONES DE CRÉDITOS ---
 
     public void OpenCredits()
     {
         if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
         creditsPanel.SetActive(true);
+        
+        // <<<< AHORA REPRODUCIMOS LA MÚSICA >>>>
+        if (creditsAudioSource != null)
+        {
+            creditsAudioSource.Play();
+        }
     }
 
     public void CloseCredits()
     {
         creditsPanel.SetActive(false);
         if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
+        
+        // <<<< DETENEMOS LA MÚSICA AL CERRAR >>>>
+        if (creditsAudioSource != null)
+        {
+            creditsAudioSource.Stop();
+        }
     }
 }

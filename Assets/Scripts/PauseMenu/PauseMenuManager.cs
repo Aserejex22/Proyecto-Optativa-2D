@@ -24,9 +24,15 @@ public class PauseMenuManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
     }
-    public void QuitGame()
+   public void QuitGame()
     {
-        Debug.Log("Saliendo del juego...");
-        Application.Quit();
+        // 1. Asegúrate de que el tiempo corra normal
+        Time.timeScale = 1; 
+
+        // 2. ¡La clave! Carga la escena del menú principal
+        //    Asegúrate de que tu escena de menú se llame EXACTAMENTE "MenuMain"
+        SceneManager.LoadScene("MenuMain"); 
+        
+        Debug.Log("Volviendo al menú principal...");
     }
 }    
