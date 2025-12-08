@@ -8,7 +8,8 @@ public class DamageObject : MonoBehaviour
         {
 
             Debug.Log("haz muerto");
-            collision.transform.GetComponent<PlayerRespawn>().PlayerDamage();
+            collision.transform.GetComponent<PlayerRespawn>().PlayerDamageAll();
+            
         }
     }
 }

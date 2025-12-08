@@ -223,6 +223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   animator: {fileID: 1307746252934317287}
+  hearts:
+  - {fileID: 0}
 --- !u!1 &6393773444190762280
 GameObject:
   m_ObjectHideFlags: 0
