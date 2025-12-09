@@ -7,7 +7,7 @@ public class CreditsScroll : MonoBehaviour
 
     // NUEVO: Define hasta qué altura sube el texto antes de cerrarse
     [Tooltip("Posición Y donde se cierran los créditos. Calcula esto subiendo el texto manualmente.")]
-    public float alturaFinal = 1500f; 
+    public float alturaFinal = 5000f; 
     
     private RectTransform miRectTransform;
     private Vector2 posicionInicial;

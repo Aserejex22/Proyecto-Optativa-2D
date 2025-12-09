@@ -1989,7 +1989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreditsScroll
   speed: 100
-  alturaFinal: 1500
+  alturaFinal: 5000
 --- !u!1 &1720733837
 GameObject:
   m_ObjectHideFlags: 0
