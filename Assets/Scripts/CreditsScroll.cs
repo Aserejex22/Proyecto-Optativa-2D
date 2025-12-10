@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class CreditsScroll : MonoBehaviour
 {
-    public float alturaFinal = 5000f; 
+    public float alturaFinal = 5000f;
+    public float speed = 100f;
 
     private RectTransform miRectTransform;
     private Vector2 posicionInicial;
