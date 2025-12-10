@@ -3,9 +3,7 @@ using UnityEngine;
 public class CreditsScroll : MonoBehaviour
 {
     public float alturaFinal = 5000f; 
-    // Velocidad de desplazamiento de los créditos (unidades por segundo)
     public float speed = 50f;
-
     private RectTransform miRectTransform;
     private Vector2 posicionInicial;
     private MainMenuManager menuManager;
