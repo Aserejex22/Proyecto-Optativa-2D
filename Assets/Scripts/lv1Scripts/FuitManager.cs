@@ -18,7 +18,7 @@ public class FuitManager : MonoBehaviour
     {
         AllFruitsCollected();
         totalFruits.text = totalFruitsIntLevel.ToString();
-        // fruitsCollected.text = (totalFruitsIntLevel - transform.childCount).ToString();
+        
         fruitsCollected.text = (Mathf.Abs(transform.childCount - totalFruitsIntLevel).ToString());
 
     }
@@ -27,7 +27,6 @@ public class FuitManager : MonoBehaviour
         if(transform.childCount == 0)
         {
             Debug.Log("Nivel Completado");
-           // levelCleared.gameObject.SetActive(true);
             transition.SetActive(true);
             Invoke("ChangeScene", 1);
         }

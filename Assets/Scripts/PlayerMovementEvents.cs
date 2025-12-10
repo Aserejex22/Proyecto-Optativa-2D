@@ -13,27 +13,25 @@ public class PlayerMovementEvents : MonoBehaviour
 
     [Header("Ground check")]
     public float groundCheckRadius = 0.12f;
-    public LayerMask groundLayer; // setea la Layer del suelo en el Inspector (si está vacío intenta "Ground" o Everything)
-
+    public LayerMask groundLayer; 
     [Header("Limiters")]
-    public float maxUpwardSpeed = 12f; // evita velocidades verticales excesivas (por colisiones)
-
+    public float maxUpwardSpeed = 12f; 
     Rigidbody2D rb;
     Collider2D col;
     float moveInput;
     bool jumpRequested;
-    bool canJump = true; // solo permitir un salto hasta volver al suelo
+    bool canJump = true;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
-        // Si el usuario no configuró un LayerMask en el Inspector, intenta usar la Layer "Ground".
+       
         if (groundLayer.value == 0)
         {
             int mask = LayerMask.GetMask("Ground");
             if (mask != 0) groundLayer = mask;
-            else groundLayer = ~0; // Everything fallback
+            else groundLayer = ~0; 
         }
     }
 
@@ -79,7 +77,6 @@ public class PlayerMovementEvents : MonoBehaviour
             jumpRequested = false;
         }
 
-        // Limita la velocidad vertical hacia arriba para evitar "volar" por colisiones
         Vector2 v2 = rb.linearVelocity;
         if (v2.y > maxUpwardSpeed) v2.y = maxUpwardSpeed;
         rb.linearVelocity = v2;
@@ -89,14 +86,11 @@ public class PlayerMovementEvents : MonoBehaviour
     {
         if (col == null) return false;
         Bounds b = col.bounds;
-        // posición justo debajo del collider
         Vector2 circlePos = new Vector2(b.center.x, b.min.y - 0.01f);
 
-        // 1) OverlapCircle check
         Collider2D c = Physics2D.OverlapCircle(circlePos, groundCheckRadius, groundLayer);
         if (c != null) return true;
 
-        // 2) Raycast fallback
         float rayDist = Mathf.Max(groundCheckRadius * 1.5f, 0.12f);
         RaycastHit2D hit = Physics2D.Raycast(circlePos, Vector2.down, rayDist, groundLayer);
         return hit.collider != null;
@@ -118,12 +112,12 @@ public class PlayerMovementEvents : MonoBehaviour
     {
         foreach (var contact in collision.contacts)
         {
-            // Debug removed: previously logged contact normals for diagnosis
+          
         }
     }
     
     void OnCollisionStay2D(Collision2D collision)
     {
-        // opcional: se puede analizar contacto continuado aquí
+     
     }
 }

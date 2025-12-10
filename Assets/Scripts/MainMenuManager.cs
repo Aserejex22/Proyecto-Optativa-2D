@@ -6,11 +6,9 @@ public class MainMenuManager : MonoBehaviour
     private const string MenuSceneName = "MenuMain";
     private const string CreditsSceneName = "EndCredits";
 
-    // Asegurate de arrastrar estas referencias en el Inspector
     public GameObject mainMenuPanel;
     public GameObject creditsPanel;
 
-    // Musica para los creditos
     public AudioSource creditsAudioSource;
 
     void Start()
@@ -38,21 +36,17 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    // --- NUEVAS FUNCIONES PARA JUGAR Y SALIR ---
-
     public void Jugar()
     {
-        // Carga la escena llamada "lvl1".
         SceneManager.LoadScene("lvl1");
     }
 
     public void Salir()
     {
-        Debug.Log("Saliendo del juego..."); // Esto es para que veas que funciona en el editor
+        Debug.Log("Saliendo del juego...");
         Application.Quit();
     }
 
-    // --- TUS FUNCIONES DE CREDITOS ---
 
     public void OpenCredits()
     {
@@ -65,8 +59,6 @@ public class MainMenuManager : MonoBehaviour
         {
             creditsPanel.SetActive(true);
         }
-
-        // <<<< AHORA REPRODUCIMOS LA MUSICA >>>>
         if (creditsAudioSource != null)
         {
             creditsAudioSource.Play();
@@ -75,7 +67,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void CloseCredits()
     {
-        // En la escena dedicada de creditos volvemos al menu principal.
         if (SceneManager.GetActiveScene().name == CreditsSceneName)
         {
             Time.timeScale = 1f;
@@ -98,8 +89,7 @@ public class MainMenuManager : MonoBehaviour
         {
             mainMenuPanel.SetActive(true);
         }
-        
-        // <<<< DETENEMOS LA MUSICA AL CERRAR >>>>
+
         if (creditsAudioSource != null)
         {
             creditsAudioSource.Stop();

@@ -50,8 +50,6 @@ public class PlayerRespawn : MonoBehaviour
     {
         life--;
         CheckLife();
-        /*animator.Play("HitAnimation");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);*/
 
     }
 
